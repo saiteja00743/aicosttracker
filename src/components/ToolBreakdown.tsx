@@ -49,10 +49,12 @@ export default function ToolBreakdownTable({ audit }: { audit?: AuditResult }) {
               {audit.toolResults.map(({ tool, recommendation }, i) => {
                 const spendNum = parseFloat(tool.monthlySpend || "0");
                 const pct = spendNum > 0 ? Math.round((recommendation.savings / spendNum) * 100) : 0;
-                // Mock utilization based on type of recommendation
+                
+                // Pure pseudo-random utilization based on tool.id
+                const hash = tool.id.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
                 const utilization = recommendation.type === "downgrade" || recommendation.type === "consolidation" 
-                  ? Math.floor(Math.random() * 30) + 10 
-                  : Math.floor(Math.random() * 40) + 50;
+                  ? (hash % 30) + 10 
+                  : (hash % 40) + 50;
 
                 const getColors = (provider: string) => {
                   if (provider.includes("ChatGPT")) return { c: "text-[#10a37f]", bg: "bg-[#10a37f]/10" };

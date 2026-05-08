@@ -30,7 +30,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed top-0 w-full z-50 transition-all duration-300",
-          "bg-[#09100c]/80 backdrop-blur-2xl border-b border-[#3c4a42]/30 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+          scrolled ? "bg-[#09100c]/90 backdrop-blur-2xl border-b border-[#3c4a42]/30 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" : "bg-transparent border-transparent"
         )}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-20">

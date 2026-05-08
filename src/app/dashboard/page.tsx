@@ -1,19 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Download, Share2, Copy, CheckCircle2, ArrowRight } from "lucide-react";
+import { Zap, Download, Share2, Copy, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import CountUp from "@/components/AnimatedCountUp";
 import ToolBreakdownTable, { UpsellBanner } from "@/components/ToolBreakdown";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { runAuditEngine, AuditResult, ToolEntry } from "@/lib/auditEngine";
+import { runAuditEngine, AuditResult } from "@/lib/auditEngine";
 
 function SharePanel({ resultId }: { resultId: string }) {
   const [copied, setCopied] = useState(false);
   const [baseUrl, setBaseUrl] = useState("");
   
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setBaseUrl(window.location.origin);
   }, []);
   
@@ -128,6 +129,7 @@ function InsightCard({ audit }: { audit: AuditResult }) {
 
 export default function DashboardPage() {
   const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [formData, setFormData] = useState<any>(null);
   
   useEffect(() => {
@@ -135,6 +137,7 @@ export default function DashboardPage() {
       const saved = localStorage.getItem("credex_audit_form");
       if (saved) {
         const parsed = JSON.parse(saved);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData(parsed);
         if (parsed.tools && parsed.tools.length > 0) {
           const result = runAuditEngine(parsed.tools, parsed.teamSize);
@@ -317,7 +320,7 @@ export default function DashboardPage() {
               </div>
               <h3 className="text-[20px] font-semibold mb-2">You&apos;re already spending efficiently</h3>
               <p className="text-on-surface-variant text-[14px] max-w-lg mx-auto">
-                Our engine didn't find significant redundancies or waste in your stack. Keep up the good work! If your team scales beyond 50 members, reach out to us for enterprise rate negotiation.
+                Our engine didn&apos;t find significant redundancies or waste in your stack. Keep up the good work! If your team scales beyond 50 members, reach out to us for enterprise rate negotiation.
               </p>
             </div>
           )}

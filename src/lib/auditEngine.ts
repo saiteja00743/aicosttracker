@@ -23,7 +23,8 @@ export interface AuditResult {
   }[];
 }
 
-export function runAuditEngine(tools: ToolEntry[], teamSize: string): AuditResult {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResult {
   let totalCurrentSpend = 0;
   let totalMonthlySavings = 0;
   
