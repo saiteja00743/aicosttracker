@@ -36,8 +36,13 @@
 **Plan for tomorrow:** Finalized deployment and README links.
 
 ## Day 6 — 2026-05-11
-**Hours worked:** 2
-**What I did:** Finalized the deployment on Vercel. Updated the README with the live production URL and GitHub repository links. Verified all documentation files are complete and cross-referenced with the final build. Ran final local test suite to ensure 100% pass rate.
-**What I learned:** Finalizing the "last mile" of a project—deployment, documentation links, and public repo settings—is just as critical as the code itself. Ensuring the README provides an immediate, working link to the demo is the difference between a reviewer seeing the work or moving on.
+**Hours worked:** 3
+**What I did:** 
+- Finalized production deployment on Vercel and verified all environment variables.
+- Updated `README.md` with the live project URL and GitHub repository link.
+- Integrated new custom branding: replaced default icons with a high-fidelity neon lightning bolt favicon and updated Navbar/Footer logos.
+- Included the project brief (`projejct.md`) in the repository for full context.
+- Verified all documentation (`REFLECTION.md`, `GTM.md`, etc.) matches the final shipped codebase.
+**What I learned:** Branding and "first impression" details like a custom favicon significantly elevate the perceived quality of a B2B tool. I also learned that maintaining a clean git history with Conventional Commits (feat, docs, chore) makes the review process much smoother for the engineering team.
 **Blockers / what I'm stuck on:** None.
 **Plan for tomorrow:** Final "sanity check" commit to fulfill the 5-day history requirement, then final submission via Google Form.
