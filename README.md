@@ -1,5 +1,8 @@
 # Credex AI Spend Audit Platform
 
+**Live Demo:** [https://credix-nu.vercel.app/](https://credix-nu.vercel.app/)  
+**GitHub Repository:** [https://github.com/saiteja00743/Credix](https://github.com/saiteja00743/Credix)
+
 Credex AI is a premium B2B SaaS landing page and dashboard designed to help startup founders, CFOs, and engineering managers identify and eliminate wasted spend on enterprise AI tools (like ChatGPT Plus, Anthropic API, GitHub Copilot, etc.). 
 
 This application functions as a highly-polished lead generation engine, utilizing an interactive "AI Spend Audit" form to immediately calculate and display ROI to prospective clients.
