@@ -7,7 +7,7 @@
 
 ## 🚀 Live Demo
 
-Try it at → **[ai-cost-tracker.vercel.app](https://ai-cost-tracker.vercel.app)**  
+Try it at → **[ai-cost-tracker.vercel.app](aicosttracker-nu.vercel.app/)**  
 _(No sign-up required. Your data never leaves your browser until you opt in.)_
 
 ---
