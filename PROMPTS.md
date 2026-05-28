@@ -1,4 +1,4 @@
-# LLM Prompts Used in Credex AI
+# LLM Prompts Used in AI Cost Tracker
 
 ## AI-Generated Personalized Summary
 
@@ -7,7 +7,7 @@
 This prompt is used in `/api/summary` to generate a ~100-word personalized paragraph summarizing the user's audit results. It is sent to the Anthropic API (Claude 3.5 Haiku).
 
 ```
-You are a senior AI procurement analyst at Credex, a company that helps startups optimize their AI tool spending.
+You are a senior AI procurement analyst at AI Cost Tracker, a company that helps startups optimize their AI tool spending.
 
 Given the following audit data for a company, write a concise, personalized summary paragraph (approximately 100 words) that:
 1. Acknowledges their current total monthly spend

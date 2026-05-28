@@ -1,11 +1,11 @@
-# <img src="src/app/icon.png" width="32" height="32" valign="middle" /> Credex AI: Spend Audit Platform
+# <img src="src/app/icon.png" width="32" height="32" valign="middle" /> AI Cost Tracker: Spend Audit Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
 
-**Credex AI** is a premium, high-conversion lead generation engine designed for the AI era. It helps startups and enterprises identify wasted spend on AI subscriptions (Cursor, Claude, ChatGPT, etc.) and offers defensible, data-driven optimization strategies.
+**AI Cost Tracker** is a premium, high-conversion lead generation engine designed for the AI era. It helps startups and enterprises identify wasted spend on AI subscriptions (Cursor, Claude, ChatGPT, etc.) and offers defensible, data-driven optimization strategies.
 
 ---
 
@@ -25,7 +25,7 @@ A deterministic, rule-based engine that evaluates user stacks against real-world
 Integrated with **Anthropic Claude 3.5 Sonnet** to generate narrative, executive-ready summaries of potential savings. Features a zero-latency fallback system for 100% uptime.
 
 #### 📈 Benchmark Mode
-Allows users to compare their AI spend per developer against industry averages for Seed, Growth, and Enterprise stages, creating a compelling psychological hook for Credex's services.
+Allows users to compare their AI spend per developer against industry averages for Seed, Growth, and Enterprise stages, creating a psychological hook for AI Cost Tracker's services.
 
 #### 🔗 Viral Shareability
 Dynamic `/report/[id]` routes with custom-generated Open Graph metadata for high-quality previews on Twitter, Slack, and LinkedIn.
@@ -88,4 +88,4 @@ Dynamic `/report/[id]` routes with custom-generated Open Graph metadata for high
 
 ---
 
-*Built with passion for the Credex Intern Assignment — Round 1.*
+*Built with passion for the AI Cost Tracker Assignment — Round 1.*

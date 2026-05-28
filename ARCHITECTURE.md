@@ -1,4 +1,4 @@
-# Credex AI — Architecture & Design Decisions
+# AI Cost Tracker — Architecture & Design Decisions
 
 ## Current Tech Stack (Shipped)
 
@@ -62,7 +62,7 @@ tests/
 User fills AuditForm
       │
       ▼
-localStorage ("credex_audit_form")
+localStorage ("aicosttracker_audit_form")
       │
       ▼
 POST /api/leads  ←── rate limiter + honeypot check

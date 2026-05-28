@@ -64,7 +64,7 @@ function SharePanel({ resultId }: { resultId: string }) {
             if (navigator.share) {
               try {
                 await navigator.share({
-                  title: 'Credex AI Spend Audit',
+                  title: 'AI Cost Tracker Spend Audit',
                   text: 'Check out my AI spend optimization report:',
                   url: link,
                 });
@@ -187,7 +187,7 @@ export default function DashboardPage() {
   
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("credex_audit_form");
+      const saved = localStorage.getItem("aicosttracker_audit_form");
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.tools && parsed.tools.length > 0) {
@@ -196,7 +196,7 @@ export default function DashboardPage() {
           setAuditResult(result);
         }
       }
-      const savedId = localStorage.getItem("credex_last_audit_id");
+      const savedId = localStorage.getItem("aicosttracker_last_audit_id");
       if (savedId) {
         setAuditId(savedId);
       }
@@ -263,7 +263,7 @@ export default function DashboardPage() {
               <Zap className="w-4 h-4 text-primary" strokeWidth={2.5} />
             </div>
             <span className="text-[20px] font-bold tracking-tight">
-              Credex<span className="text-primary">AI</span>
+              AI Cost<span className="text-primary"> Tracker</span>
             </span>
           </Link>
           <div className="flex items-center gap-4">

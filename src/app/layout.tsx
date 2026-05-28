@@ -8,9 +8,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: "CredexAI — AI Spend Audit & Optimization Platform",
+  title: "AI Cost Tracker — AI Spend Audit & Optimization Platform",
   description:
-    "Identify and eliminate AI tool waste. Credex audits your ChatGPT, Claude, Midjourney and 200+ AI subscriptions to uncover 18–38% in savings. Free intelligence report in seconds.",
+    "Identify and eliminate AI tool waste. AI Cost Tracker audits your ChatGPT, Claude, Midjourney and 200+ AI subscriptions to uncover 18–38% in savings. Free intelligence report in seconds.",
   keywords: [
     "AI spend audit",
     "AI cost optimization",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "enterprise AI audit",
   ],
   openGraph: {
-    title: "CredexAI — Stop Overpaying for AI Tools",
+    title: "AI Cost Tracker — Stop Overpaying for AI Tools",
     description:
       "Free AI spend audit. Identify license waste, seat overlap, and tier mismatches across your entire AI stack.",
     type: "website",

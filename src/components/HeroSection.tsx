@@ -131,7 +131,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-on-surface-variant text-[16px] xl:text-[18px] leading-relaxed max-w-lg text-balance"
         >
-          C-suite procurement leaders use Credex to audit enterprise spend on
+          C-suite procurement leaders use AI Cost Tracker to audit enterprise spend on
           ChatGPT, Claude, Midjourney, and 200+ AI providers.{" "}
           <strong className="text-on-surface font-medium">Reduce waste by 32% on average.</strong>
         </motion.p>

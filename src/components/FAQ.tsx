@@ -95,7 +95,7 @@ export default function FAQ() {
           transition={{ delay: 0.1 }}
           className="text-on-surface-variant max-w-lg mx-auto"
         >
-          Everything you need to know about the Credex AI audit process.
+          Everything you need to know about the AI Cost Tracker audit process.
         </motion.p>
       </div>
 

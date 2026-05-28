@@ -38,10 +38,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
-              <img src="/icon.png" alt="Credex Logo" className="w-full h-full object-cover" />
+              <img src="/icon.png" alt="AI Cost Tracker Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-[22px] font-bold tracking-tight text-on-surface">
-              Credex<span className="text-primary">AI</span>
+              AI Cost<span className="text-primary"> Tracker</span>
             </span>
           </Link>
 

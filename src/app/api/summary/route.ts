@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
       )
       .join("\n");
 
-    const prompt = `You are a senior AI procurement analyst at Credex, a company that helps startups optimize their AI tool spending.
+    const prompt = `You are a senior AI procurement analyst at AI Cost Tracker, a company that helps startups optimize their AI tool spending.
 
 Given the following audit data for a company, write a concise, personalized summary paragraph (approximately 100 words) that:
 1. Acknowledges their current total monthly spend

@@ -41,15 +41,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!audit) {
     return {
-      title: "AI Spend Audit Report | Credex AI",
+      title: "AI Spend Audit Report | AI Cost Tracker",
       description:
         "View your personalized AI spend audit — identify redundancies and unlock savings.",
       openGraph: {
-        title: "AI Spend Audit Report | Credex AI",
+        title: "AI Spend Audit Report | AI Cost Tracker",
         description:
           "View your personalized AI spend audit — identify redundancies and unlock savings.",
         url: `${baseUrl}/report/${id}`,
-        siteName: "Credex AI",
+        siteName: "AI Cost Tracker",
         type: "website",
       },
     };
@@ -59,19 +59,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const annual = Math.round(audit.total_annual_savings ?? 0);
 
   return {
-    title: `$${annual.toLocaleString()}/yr savings identified | Credex AI Audit`,
+    title: `$${annual.toLocaleString()}/yr savings identified | AI Cost Tracker Audit`,
     description: `This AI spend audit identified $${monthly.toLocaleString()}/month ($${annual.toLocaleString()}/year) in potential savings across ${(audit.tools as unknown[])?.length ?? 0} AI tools.`,
     openGraph: {
       title: `$${annual.toLocaleString()}/yr in AI savings identified`,
-      description: `Credex AI found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
+      description: `AI Cost Tracker found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
       url: `${baseUrl}/report/${id}`,
-      siteName: "Credex AI",
+      siteName: "AI Cost Tracker",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: `$${annual.toLocaleString()}/yr in AI savings identified`,
-      description: `Credex AI found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
+      description: `AI Cost Tracker found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
     },
   };
 }

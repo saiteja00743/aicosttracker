@@ -39,7 +39,7 @@ function buildHtml({
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Credex AI Spend Audit is ready</title>
+  <title>Your AI Cost Tracker Spend Audit is ready</title>
 </head>
 <body style="margin:0;padding:0;background:#0e1511;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#0e1511;padding:40px 16px;">
@@ -55,7 +55,7 @@ function buildHtml({
                   <span style="color:#4edea3;font-size:18px;font-weight:900;">⚡</span>
                 </td>
                 <td style="padding-left:10px;color:#f0f4f2;font-size:20px;font-weight:700;letter-spacing:-0.5px;">
-                  Credex<span style="color:#4edea3;">AI</span>
+                  AI Cost<span style="color:#4edea3;"> Tracker</span>
                 </td>
               </tr>
             </table>
@@ -74,7 +74,7 @@ function buildHtml({
             </h1>
             <p style="margin:0 0 32px;color:#8fa899;font-size:15px;line-height:1.6;">
               Hi${name ? ` ${name}` : ""}${company ? ` from ${company}` : ""},<br/><br/>
-              Your <strong style="color:#f0f4f2;">Credex AI Spend Audit</strong> is ready. 
+              Your <strong style="color:#f0f4f2;">AI Cost Tracker Spend Audit</strong> is ready. 
               We analyzed <strong style="color:#f0f4f2;">${toolCount} AI tool${toolCount !== 1 ? "s" : ""}</strong> in your stack 
               and identified <strong style="color:#4edea3;">$${fmt(annualSavings)} in annual savings</strong> that you can 
               unlock today through plan optimization and consolidation.
@@ -115,7 +115,7 @@ function buildHtml({
               You're receiving this because you submitted an audit at <a href="${baseUrl}" style="color:#4edea3;text-decoration:none;">credex-ai.vercel.app</a>.
             </p>
             <p style="margin:0;color:#4d5d54;font-size:11px;">
-              Credex AI · AI Spend Intelligence · No credit card required
+              AI Cost Tracker · AI Spend Intelligence · No credit card required
             </p>
           </td>
         </tr>
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Credex AI <onboarding@resend.dev>",
+        from: "AI Cost Tracker <onboarding@resend.dev>",
         to: [payload.to],
         subject: `Your AI Spend Audit: $${Math.round(payload.annualSavings).toLocaleString()} annual savings identified`,
         html,

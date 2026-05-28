@@ -31,10 +31,10 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
               <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-                <img src="/icon.png" alt="Credex Logo" className="w-full h-full object-cover" />
+                <img src="/icon.png" alt="AI Cost Tracker Logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-[22px] font-bold tracking-tight">
-                Credex<span className="text-primary">AI</span>
+                AI Cost<span className="text-primary"> Tracker</span>
               </span>
             </div>
             <p className="text-on-surface-variant text-[14px] leading-relaxed max-w-xs mb-8">
@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-[#3c4a42]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-on-surface-variant text-[13px]">
-            © 2024 Credex AI, Inc. All rights reserved.
+            © 2024 AI Cost Tracker, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />

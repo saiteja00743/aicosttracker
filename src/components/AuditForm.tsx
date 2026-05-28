@@ -202,7 +202,7 @@ export default function AuditForm() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("credex_audit_form");
+      const saved = localStorage.getItem("aicosttracker_audit_form");
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.tools && Array.isArray(parsed.tools)) {
@@ -241,7 +241,7 @@ export default function AuditForm() {
 
   useEffect(() => {
     if (!isLoaded) return;
-    localStorage.setItem("credex_audit_form", JSON.stringify({ tools, company, role, email, teamSize }));
+    localStorage.setItem("aicosttracker_audit_form", JSON.stringify({ tools, company, role, email, teamSize }));
   }, [tools, company, role, email, teamSize, isLoaded]);
 
   const addTool = () => {
@@ -306,7 +306,7 @@ export default function AuditForm() {
 
       // Store audit result for the dashboard page
       localStorage.setItem(
-        "credex_audit_result",
+        "aicosttracker_audit_result",
         JSON.stringify(auditResult)
       );
 
@@ -332,19 +332,19 @@ export default function AuditForm() {
       if (response.ok) {
         const data = await response.json();
         if (data.id) {
-          localStorage.setItem("credex_last_audit_id", data.id);
+          localStorage.setItem("aicosttracker_last_audit_id", data.id);
         }
       } else {
         // Fallback ID if API fails (e.g., no supabase configured)
         const fallbackId = `audit_local_${Date.now()}`;
-        localStorage.setItem("credex_last_audit_id", fallbackId);
+        localStorage.setItem("aicosttracker_last_audit_id", fallbackId);
       }
     } catch (err) {
       console.error("Submission error:", err);
       // Even if the API call fails, still redirect to dashboard
       // since audit runs client-side
       const fallbackId = `audit_local_${Date.now()}`;
-      localStorage.setItem("credex_last_audit_id", fallbackId);
+      localStorage.setItem("aicosttracker_last_audit_id", fallbackId);
     }
 
     setIsSubmitting(false);

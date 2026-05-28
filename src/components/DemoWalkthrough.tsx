@@ -29,7 +29,7 @@ export default function DemoWalkthrough() {
         teamSize: "51–250",
       };
 
-      localStorage.setItem("credex_audit_form", JSON.stringify(demoState));
+      localStorage.setItem("aicosttracker_audit_form", JSON.stringify(demoState));
       
       // Dispatch a custom event or simply reload to let the form pick it up
       // In this demo, reloading is the most robust way to trigger the re-render with local storage, 
@@ -87,7 +87,7 @@ export default function DemoWalkthrough() {
 
               <h2 className="text-[22px] font-semibold mb-3">Interactive Demo</h2>
               <p className="text-[14px] text-on-surface-variant leading-relaxed mb-8">
-                Want to see Credex in action? This demo will automatically populate the audit form with a sample 4-tool AI stack (ChatGPT, Claude, Copilot, Midjourney) so you can instantly see the generated dashboard and recommendations.
+                Want to see AI Cost Tracker in action? This demo will automatically populate the audit form with a sample 4-tool AI stack (ChatGPT, Claude, Copilot, Midjourney) so you can instantly see the generated dashboard and recommendations.
               </p>
 
               <button

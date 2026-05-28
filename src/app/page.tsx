@@ -45,7 +45,7 @@ export default function HomePage() {
                 href="#audit-form"
                 className="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-[16px] hover:scale-[1.03] active:scale-[0.98] transition-all shadow-[0_0_24px_rgba(78,222,163,0.35)] hover:shadow-[0_0_40px_rgba(78,222,163,0.5)]"
               >
-                Schedule Credex Consultation
+                Schedule AI Cost Tracker Consultation
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
