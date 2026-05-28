@@ -61,8 +61,8 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Team" && seats === 2) {
         recommendation = {
           action: "Downgrade to ChatGPT Plus (Shared)",
-          savings: spend - 40,
-          reasoning: "ChatGPT Team requires a minimum of 2 seats ($50/mo). Small teams can often operate on 2 individual Plus accounts ($40/mo) if they don't need centralized workspace management.",
+          savings: spend - 3360,
+          reasoning: "ChatGPT Team requires a minimum of 2 seats (₹4,200/mo). Small teams can often operate on 2 individual Plus accounts (₹3,360/mo) if they don't need centralized workspace management.",
           type: "downgrade"
         };
       } else if (tool.plan === "Enterprise") {
@@ -79,7 +79,7 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
           reasoning: "You are paying for ChatGPT while also using a dedicated AI coding assistant (Cursor/Copilot) which includes premium LLM access.",
           type: "consolidation"
         };
-      } else if (tool.plan === "API Direct" && spend > 500) {
+      } else if (tool.plan === "API Direct" && spend > 42000) {
         recommendation = {
           action: "Apply Startup Cloud Credits",
           savings: spend * 0.2,
@@ -92,15 +92,15 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Team" && seats < 5) {
         recommendation = {
           action: "Downgrade to Claude Pro",
-          savings: spend - (20 * seats),
-          reasoning: "Claude Team ($30/user) requires a minimum of 5 seats. Using individual Claude Pro accounts ($20/user) is more cost-effective for teams under 5.",
+          savings: spend - (1680 * seats),
+          reasoning: "Claude Team (₹2,520/user) requires a minimum of 5 seats. Using individual Claude Pro accounts (₹1,680/user) is more cost-effective for teams under 5.",
           type: "downgrade"
         };
-      } else if (tool.plan === "API Direct" && spend > 500) {
+      } else if (tool.plan === "API Direct" && spend > 42000) {
         recommendation = {
           action: "Apply Infrastructure Credits",
           savings: spend * 0.2,
-          reasoning: "Anthropic API usage over $500/mo can often be offset by AWS Bedrock or GCP Vertex AI startup credits.",
+          reasoning: "Anthropic API usage over ₹42,000/mo can often be offset by AWS Bedrock or GCP Vertex AI startup credits.",
           type: "credits"
         };
       }
@@ -109,8 +109,8 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Business") {
         recommendation = {
           action: "Downgrade to Cursor Pro",
-          savings: spend - (20 * seats),
-          reasoning: "Cursor Business ($40/user) adds centralized billing and privacy. Unless mandated by compliance, Cursor Pro ($20/user) offers identical AI capabilities.",
+          savings: spend - (1680 * seats),
+          reasoning: "Cursor Business (₹3,360/user) adds centralized billing and privacy. Unless mandated by compliance, Cursor Pro (₹1,680/user) offers identical AI capabilities.",
           type: "downgrade"
         };
       }
@@ -119,25 +119,25 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Enterprise") {
         recommendation = {
           action: "Downgrade to Copilot Business",
-          savings: spend - (19 * seats),
-          reasoning: "Copilot Enterprise ($39/user) is rarely utilized fully by startups. Copilot Business ($19/user) is sufficient for 95% of engineering teams.",
+          savings: spend - (1596 * seats),
+          reasoning: "Copilot Enterprise (₹3,276/user) is rarely utilized fully by startups. Copilot Business (₹1,596/user) is sufficient for 95% of engineering teams.",
           type: "downgrade"
         };
       } else if (tool.plan === "Business" && seats <= 3) {
          recommendation = {
           action: "Downgrade to Copilot Individual",
-          savings: spend - (10 * seats),
-          reasoning: "For very small teams, Copilot Individual ($10/user) is half the price of Business and provides identical autocomplete features.",
+          savings: spend - (840 * seats),
+          reasoning: "For very small teams, Copilot Individual (₹840/user) is half the price of Business and provides identical autocomplete features.",
           type: "downgrade"
         };
       }
     }
     else if (tool.provider === "Midjourney") {
-      if (spend >= 60 && seats === 1) {
+      if (spend >= 5040 && seats === 1) {
         recommendation = {
           action: "Downgrade to Standard Plan",
-          savings: spend - 30,
-          reasoning: "Midjourney Pro ($60/mo) is only necessary if you require stealth mode. The Standard plan ($30/mo) provides ample fast GPU hours for most marketing needs.",
+          savings: spend - 2520,
+          reasoning: "Midjourney Pro (₹5,040/mo) is only necessary if you require stealth mode. The Standard plan (₹2,520/mo) provides ample fast GPU hours for most marketing needs.",
           type: "downgrade"
         };
       }
@@ -146,7 +146,7 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Ultra / Advanced" && seats >= 2) {
         recommendation = {
           action: "Optimize Gemini Seat Count",
-          savings: spend - (20 * seats),
+          savings: spend - (1680 * seats),
           reasoning: "Verify that all seats are actively using advanced features. Users who only need basic access can use the free Gemini tier.",
           type: "downgrade"
         };
@@ -173,8 +173,8 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
       if (tool.plan === "Enterprise") {
         recommendation = {
           action: "Downgrade to Windsurf Pro",
-          savings: spend - (15 * seats),
-          reasoning: "Windsurf Pro ($15/user) provides full AI coding features. Enterprise tiers add admin controls that most small teams don't need yet.",
+          savings: spend - (1260 * seats),
+          reasoning: "Windsurf Pro (₹1,260/user) provides full AI coding features. Enterprise tiers add admin controls that most small teams don't need yet.",
           type: "downgrade"
         };
       } else if (tools.some(t => t.provider === "Cursor" || t.provider === "GitHub Copilot")) {
@@ -186,11 +186,11 @@ export function runAuditEngine(tools: ToolEntry[], _teamSize: string): AuditResu
         };
       }
     }
-    else if (tool.provider === "Other / Custom API" && spend > 1000) {
+    else if (tool.provider === "Other / Custom API" && spend > 84000) {
       recommendation = {
         action: "Negotiate Custom Enterprise Tier",
         savings: spend * 0.15,
-        reasoning: "Custom API spend exceeding $1k/mo qualifies for enterprise rate negotiation or bulk token commitments.",
+        reasoning: "Custom API spend exceeding ₹84,000/mo qualifies for enterprise rate negotiation or bulk token commitments.",
         type: "credits"
       };
     }

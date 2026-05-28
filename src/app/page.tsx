@@ -37,7 +37,7 @@ export default function HomePage() {
                 Unlock Corporate Rate<br />Negotiation.
               </h2>
               <p className="text-on-surface-variant text-[16px] leading-relaxed mb-8 max-w-md">
-                When your annual savings exceed $10K, you qualify for our{" "}
+                When your annual savings exceed ₹8,40,000, you qualify for our{" "}
                 <strong className="text-on-surface">Concierge Negotiation Service</strong>.
                 We talk to vendors directly to secure bulk pricing not available to the public.
               </p>

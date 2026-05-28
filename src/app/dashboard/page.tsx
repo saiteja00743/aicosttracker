@@ -114,7 +114,7 @@ function InsightCard({ audit }: { audit: AuditResult }) {
       } catch {
         // Network failure — use inline fallback
         setAiSummary(
-          `Based on our analysis of your ${audit.toolResults.length} AI platform(s), your organization currently spends $${audit.totalCurrentSpend.toLocaleString()}/month on AI infrastructure. Our audit engine identified $${audit.totalMonthlySavings.toFixed(0)}/month in potential savings ($${audit.totalAnnualSavings.toLocaleString()} annually).`
+          `Based on our analysis of your ${audit.toolResults.length} AI platform(s), your organization currently spends ₹${audit.totalCurrentSpend.toLocaleString('en-IN')}/month on AI infrastructure. Our audit engine identified ₹${audit.totalMonthlySavings.toLocaleString('en-IN')}/month in potential savings (₹${audit.totalAnnualSavings.toLocaleString('en-IN')} annually).`
         );
         setSummarySource("fallback");
       }
@@ -224,9 +224,9 @@ export default function DashboardPage() {
     {
       label: "Monthly Savings",
       value: auditResult.totalMonthlySavings,
-      prefix: "$",
+      prefix: "₹",
       suffix: "",
-      decimals: 2,
+      decimals: 0,
       color: "text-primary",
       borderColor: "border-l-primary",
       desc: "Identified this audit",
@@ -234,9 +234,9 @@ export default function DashboardPage() {
     {
       label: "Annual Savings",
       value: auditResult.totalAnnualSavings,
-      prefix: "$",
+      prefix: "₹",
       suffix: "",
-      decimals: 2,
+      decimals: 0,
       color: "text-secondary",
       borderColor: "border-l-secondary",
       desc: "Projected run-rate",

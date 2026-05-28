@@ -88,7 +88,7 @@ export default function ToolBreakdownTable({ audit }: { audit?: AuditResult }) {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-5 font-mono text-[14px] text-on-surface">${spendNum.toFixed(2)}/mo</td>
+                    <td className="px-6 py-5 font-mono text-[14px] text-on-surface">₹{Math.round(spendNum).toLocaleString('en-IN')}/mo</td>
                     <td className="px-6 py-5 w-36">
                       <div className="text-[12px] text-on-surface-variant mb-0.5">{utilization}% used</div>
                       <UtilizationBar value={utilization} delay={i * 0.1} />
@@ -105,7 +105,7 @@ export default function ToolBreakdownTable({ audit }: { audit?: AuditResult }) {
                     </td>
                     <td className="px-6 py-5 text-right">
                       <p className={cn("font-mono text-[18px] font-semibold", recommendation.savings > 0 ? "text-primary" : "text-on-surface")}>
-                        ${recommendation.savings.toFixed(2)}
+                        ₹{Math.round(recommendation.savings).toLocaleString('en-IN')}
                       </p>
                       {pct > 0 && <p className="text-[11px] text-on-surface-variant">{pct}% reduction</p>}
                     </td>
@@ -131,7 +131,7 @@ export function UpsellBanner({ savings }: { savings?: number }) {
             Unlock Corporate Rate Negotiation.
           </h2>
           <p className="text-on-surface-variant text-[15px] leading-relaxed mb-8">
-            Since your identified annual savings exceed ${savings ? Math.floor(savings/1000) : "10"}K, you qualify for our{" "}
+            Since your identified annual savings exceed ₹{savings ? Math.round(savings).toLocaleString('en-IN') : "8,40,000"}, you qualify for our{" "}
             <strong className="text-on-surface">Concierge Negotiation Service</strong>. We talk to vendors directly to secure bulk pricing not available publicly.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-4 rounded-xl font-bold text-[15px] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_24px_rgba(78,222,163,0.3)]">

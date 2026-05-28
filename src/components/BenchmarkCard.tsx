@@ -35,7 +35,7 @@ export default function BenchmarkCard({ audit }: { audit?: AuditResult }) {
               Your AI Spend / Dev
             </p>
             <div className="flex items-baseline gap-2">
-              <span className="text-[32px] font-semibold">${Math.round(benchmark.userSpendPerDev)}</span>
+              <span className="text-[32px] font-semibold">₹{Math.round(benchmark.userSpendPerDev).toLocaleString('en-IN')}</span>
               <span className="text-on-surface-variant text-[14px]">/mo</span>
             </div>
             <p className="text-[13px] text-on-surface-variant mt-2">
@@ -51,7 +51,7 @@ export default function BenchmarkCard({ audit }: { audit?: AuditResult }) {
           </p>
           <div className="flex items-baseline gap-2">
             <span className="text-[32px] font-semibold text-on-surface-variant/80">
-              ${Math.round(benchmark.avgSpendPerDev)}
+              ₹{Math.round(benchmark.avgSpendPerDev).toLocaleString('en-IN')}
             </span>
             <span className="text-on-surface-variant/60 text-[14px]">/mo</span>
           </div>

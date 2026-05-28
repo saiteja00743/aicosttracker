@@ -146,7 +146,7 @@ export default function ReportClient({ audit, auditId }: { audit: any; auditId: 
               </span>
               <h1 className="text-[36px] md:text-[48px] font-semibold tracking-[-0.02em] leading-[1.1] mb-4">
                 {annualSavings > 0
-                  ? `$${Math.round(annualSavings).toLocaleString()} in annual savings identified`
+                  ? `₹${Math.round(annualSavings).toLocaleString('en-IN')} in annual savings identified`
                   : "AI stack is well optimized"}
               </h1>
               <p className="text-on-surface-variant text-[16px] max-w-2xl leading-relaxed">
@@ -171,8 +171,8 @@ export default function ReportClient({ audit, auditId }: { audit: any; auditId: 
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14"
             >
               {[
-                { label: "Monthly Savings", value: monthlySavings, prefix: "$", suffix: "", decimals: 0, color: "text-primary", border: "border-l-primary" },
-                { label: "Annual Savings", value: annualSavings, prefix: "$", suffix: "", decimals: 0, color: "text-secondary", border: "border-l-secondary" },
+                { label: "Monthly Savings", value: monthlySavings, prefix: "₹", suffix: "", decimals: 0, color: "text-primary", border: "border-l-primary" },
+                { label: "Annual Savings", value: annualSavings, prefix: "₹", suffix: "", decimals: 0, color: "text-secondary", border: "border-l-secondary" },
                 { label: "Waste Rate", value: wasteRate, prefix: "", suffix: "%", decimals: 0, color: "text-tertiary", border: "border-l-tertiary" },
                 { label: "Tools Audited", value: tools.length, prefix: "", suffix: "", decimals: 0, color: "text-on-surface", border: "border-l-[#3c4a42]" },
               ].map((card, i) => (
@@ -251,7 +251,7 @@ export default function ReportClient({ audit, auditId }: { audit: any; auditId: 
                         <div className="shrink-0 text-right">
                           <p className="text-[11px] text-on-surface-variant uppercase tracking-wide font-semibold">Saves</p>
                           <p className="text-[22px] font-bold font-mono text-primary">
-                            ${Math.round(recommendation.savings).toLocaleString()}
+                            ₹{Math.round(recommendation.savings).toLocaleString('en-IN')}
                             <span className="text-[13px] text-on-surface-variant font-normal">/mo</span>
                           </p>
                         </div>

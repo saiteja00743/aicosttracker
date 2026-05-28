@@ -7,31 +7,31 @@ export interface BenchmarkInfo {
 
 export const TEAM_SIZE_BENCHMARKS: Record<string, BenchmarkInfo> = {
   "1–10": {
-    avgSpendPerDev: 140,
+    avgSpendPerDev: 11760,
     label: "Early Stage Startup",
     percentile: 0, // calculated at runtime
     estimatedDevCount: 5,
   },
   "11–50": {
-    avgSpendPerDev: 110,
+    avgSpendPerDev: 9240,
     label: "Scaling Startup",
     percentile: 0,
     estimatedDevCount: 30,
   },
   "51–250": {
-    avgSpendPerDev: 85,
+    avgSpendPerDev: 7140,
     label: "Mid-Market Growth",
     percentile: 0,
     estimatedDevCount: 150,
   },
   "251–1,000": {
-    avgSpendPerDev: 65,
+    avgSpendPerDev: 5460,
     label: "Large Enterprise",
     percentile: 0,
     estimatedDevCount: 600,
   },
   "1,000+": {
-    avgSpendPerDev: 55,
+    avgSpendPerDev: 4620,
     label: "Fortune 500 / Scale",
     percentile: 0,
     estimatedDevCount: 2000,

@@ -17,16 +17,16 @@ describe("runAuditEngine", () => {
   // 1 ─ Baseline math
   it("correctly sums totalCurrentSpend across all tools", () => {
     const result = runAuditEngine(
-      [tool("ChatGPT", "Team", "500", "10"), tool("Midjourney", "Basic", "30", "1")],
+      [tool("ChatGPT", "Team", "42000", "10"), tool("Midjourney", "Basic", "2520", "1")],
       "11–50"
     );
-    expect(result.totalCurrentSpend).toBe(530);
+    expect(result.totalCurrentSpend).toBe(44520);
   });
 
   // 2 ─ Annual savings = 12x monthly
   it("calculates totalAnnualSavings as 12x totalMonthlySavings", () => {
     const result = runAuditEngine(
-      [tool("GitHub Copilot", "Enterprise", "390", "10")], // $39/seat → downgrade to $19 saves $200
+      [tool("GitHub Copilot", "Enterprise", "32760", "10")], // ₹3,276/seat → downgrade to ₹1,596 saves ₹16,800
       "11–50"
     );
     expect(result.totalAnnualSavings).toBe(result.totalMonthlySavings * 12);
@@ -34,9 +34,9 @@ describe("runAuditEngine", () => {
 
   // 3 ─ ChatGPT Team plan optimization (switch to Pro)
   it("flags ChatGPT Team for small teams when seats < 3", () => {
-    // 2 seats, $60/mo → should trigger optimize action
+    // 2 seats, ₹5,040/mo → should trigger optimize action
     const result = runAuditEngine(
-      [tool("ChatGPT", "Team", "60", "2")],
+      [tool("ChatGPT", "Team", "5040", "2")],
       "1–10"
     );
     const rec = result.toolResults[0].recommendation;
@@ -48,8 +48,8 @@ describe("runAuditEngine", () => {
   it("detects redundancy when Cursor and GitHub Copilot are both in the stack", () => {
     const result = runAuditEngine(
       [
-        tool("Cursor", "Pro", "40", "2"),
-        tool("GitHub Copilot", "Business", "38", "2"),
+        tool("Cursor", "Pro", "3360", "2"),
+        tool("GitHub Copilot", "Business", "3192", "2"),
       ],
       "1–10"
     );
@@ -63,8 +63,8 @@ describe("runAuditEngine", () => {
   it("flags LLM redundancy when both ChatGPT and Claude are used", () => {
     const result = runAuditEngine(
       [
-        tool("ChatGPT", "Plus", "40", "2"),
-        tool("Claude", "Pro", "60", "3"),
+        tool("ChatGPT", "Plus", "3360", "2"),
+        tool("Claude", "Pro", "5040", "3"),
       ],
       "1–10"
     );
@@ -76,9 +76,9 @@ describe("runAuditEngine", () => {
 
   // 6 ─ Optimal stack produces zero savings
   it("returns optimal recommendation with zero savings for a well-priced stack", () => {
-    // ChatGPT Plus at exactly $20/seat = optimal
+    // ChatGPT Plus at exactly ₹1,680/seat = optimal
     const result = runAuditEngine(
-      [tool("ChatGPT", "Plus", "20", "1")],
+      [tool("ChatGPT", "Plus", "1680", "1")],
       "1–10"
     );
     const rec = result.toolResults[0].recommendation;
@@ -88,20 +88,20 @@ describe("runAuditEngine", () => {
 
   // 7 ─ Copilot Enterprise triggers downgrade to Business
   it("recommends downgrading GitHub Copilot Enterprise to Business", () => {
-    // 10 seats at $39/seat = $390/mo → should downgrade to $19 saves $200
+    // 10 seats at ₹3,276/seat = ₹32,760/mo → should downgrade to ₹1,596 saves ₹16,800
     const result = runAuditEngine(
-      [tool("GitHub Copilot", "Enterprise", "390", "10")],
+      [tool("GitHub Copilot", "Enterprise", "32760", "10")],
       "11–50"
     );
     const rec = result.toolResults[0].recommendation;
     expect(rec.type).toBe("downgrade");
-    expect(rec.savings).toBe(200); // (39-19) * 10
+    expect(rec.savings).toBe(16800); // (3276 - 1596) * 10
   });
 
   // 8 ─ High API spend triggers credits recommendation
-  it("recommends infrastructure credits for OpenAI API spend over $500", () => {
+  it("recommends infrastructure credits for OpenAI API spend over ₹42,000", () => {
     const result = runAuditEngine(
-      [tool("ChatGPT", "API Direct", "1000", "1")],
+      [tool("ChatGPT", "API Direct", "84000", "1")],
       "51–250"
     );
     const rec = result.toolResults[0].recommendation;
@@ -120,12 +120,12 @@ describe("runAuditEngine", () => {
   // 10 ─ Midjourney Pro triggers downgrade to Standard
   it("recommends downgrading Midjourney Pro to Standard for single-user", () => {
     const result = runAuditEngine(
-      [tool("Midjourney", "Pro", "60", "1", "Marketing / Creative")],
+      [tool("Midjourney", "Pro", "5040", "1", "Marketing / Creative")],
       "1–10"
     );
     const rec = result.toolResults[0].recommendation;
     expect(rec.type).toBe("downgrade");
-    expect(rec.savings).toBe(30); // $60 - $30
+    expect(rec.savings).toBe(2520); // 5040 - 2520
   });
 });
 

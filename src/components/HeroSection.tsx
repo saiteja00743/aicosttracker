@@ -8,9 +8,9 @@ import CountUp from "./AnimatedCountUp";
 // Animated hero audit preview card
 function AuditPreviewCard() {
   const items = [
-    { label: "ChatGPT Plus", detail: "42 Seats · Enterprise", saving: "$420.00", tag: "UNUSED SEATS" },
-    { label: "Anthropic API", detail: "Usage-based Tier 3", saving: "$1,240.00", tag: "PEAK OPTIMIZATION" },
-    { label: "Midjourney Pro", detail: "4 active / 18 licensed", saving: "$360.00", tag: "TIER MISMATCH" },
+    { label: "ChatGPT Plus", detail: "42 Seats · Enterprise", saving: "₹35,280", tag: "UNUSED SEATS" },
+    { label: "Anthropic API", detail: "Usage-based Tier 3", saving: "₹1,04,160", tag: "PEAK OPTIMIZATION" },
+    { label: "Midjourney Pro", detail: "4 active / 18 licensed", saving: "₹30,240", tag: "TIER MISMATCH" },
   ];
 
   return (
@@ -31,7 +31,7 @@ function AuditPreviewCard() {
               Total Potential Savings
             </p>
             <p className="text-primary font-mono text-[36px] xl:text-[44px] font-bold tracking-tight leading-none">
-              $12,480<span className="text-[20px] xl:text-[28px]">.00</span>
+              ₹10,48,320
             </p>
           </div>
           <span className="shrink-0 mt-1 sm:mt-0 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[11px] font-bold tracking-[0.06em] whitespace-nowrap">
@@ -207,7 +207,7 @@ export function StatsSection() {
     { value: 32, suffix: "%", label: "Average cost reduction", color: "text-primary" },
     { value: 200, suffix: "+", label: "AI tools supported", color: "text-secondary" },
     { value: 10000, suffix: "+", label: "Environments benchmarked", color: "text-primary" },
-    { value: 4.2, suffix: "M", label: "In savings identified", prefix: "$", color: "text-secondary" },
+    { value: 35, suffix: "Cr", label: "In savings identified", prefix: "₹", color: "text-secondary" },
   ];
 
   return (

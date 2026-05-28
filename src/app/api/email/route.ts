@@ -32,7 +32,7 @@ function buildHtml({
     process.env.NEXT_PUBLIC_BASE_URL || "https://credex-ai.vercel.app";
   const reportUrl = `${baseUrl}/report/${auditId}`;
   const fmt = (n: number) =>
-    n.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    n.toLocaleString("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -70,13 +70,13 @@ function buildHtml({
               ✦ Audit Complete
             </p>
             <h1 style="margin:0 0 16px;color:#f0f4f2;font-size:28px;font-weight:700;line-height:1.2;letter-spacing:-0.5px;">
-              ${monthlySavings > 0 ? `We found $${fmt(monthlySavings)}/mo you can save` : "Your AI stack is well optimized"}
+              ${monthlySavings > 0 ? `We found ₹${fmt(monthlySavings)}/mo you can save` : "Your AI stack is well optimized"}
             </h1>
             <p style="margin:0 0 32px;color:#8fa899;font-size:15px;line-height:1.6;">
               Hi${name ? ` ${name}` : ""}${company ? ` from ${company}` : ""},<br/><br/>
               Your <strong style="color:#f0f4f2;">AI Cost Tracker Spend Audit</strong> is ready. 
               We analyzed <strong style="color:#f0f4f2;">${toolCount} AI tool${toolCount !== 1 ? "s" : ""}</strong> in your stack 
-              and identified <strong style="color:#4edea3;">$${fmt(annualSavings)} in annual savings</strong> that you can 
+              and identified <strong style="color:#4edea3;">₹${fmt(annualSavings)} in annual savings</strong> that you can 
               unlock today through plan optimization and consolidation.
             </p>
 
@@ -85,12 +85,12 @@ function buildHtml({
               <tr>
                 <td width="48%" style="background:rgba(78,222,163,0.06);border:1px solid rgba(78,222,163,0.15);border-radius:12px;padding:20px;text-align:center;">
                   <p style="margin:0 0 4px;color:#8fa899;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Monthly Savings</p>
-                  <p style="margin:0;color:#4edea3;font-size:28px;font-weight:700;font-family:monospace;">$${fmt(monthlySavings)}</p>
+                  <p style="margin:0;color:#4edea3;font-size:28px;font-weight:700;font-family:monospace;">₹${fmt(monthlySavings)}</p>
                 </td>
                 <td width="4%"></td>
                 <td width="48%" style="background:rgba(152,206,178,0.06);border:1px solid rgba(152,206,178,0.15);border-radius:12px;padding:20px;text-align:center;">
                   <p style="margin:0 0 4px;color:#8fa899;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Annual Savings</p>
-                  <p style="margin:0;color:#98ceb2;font-size:28px;font-weight:700;font-family:monospace;">$${fmt(annualSavings)}</p>
+                  <p style="margin:0;color:#98ceb2;font-size:28px;font-weight:700;font-family:monospace;">₹${fmt(annualSavings)}</p>
                 </td>
               </tr>
             </table>
@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         from: "AI Cost Tracker <onboarding@resend.dev>",
         to: [payload.to],
-        subject: `Your AI Spend Audit: $${Math.round(payload.annualSavings).toLocaleString()} annual savings identified`,
+        subject: `Your AI Spend Audit: ₹${Math.round(payload.annualSavings).toLocaleString("en-IN")} annual savings identified`,
         html,
       }),
     });

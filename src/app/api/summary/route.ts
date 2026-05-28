@@ -39,15 +39,15 @@ function generateFallbackSummary(data: SummaryRequest): string {
   const sorted = [...toolResults].sort((a, b) => b.recommendation.savings - a.recommendation.savings);
   const topSaver = sorted[0];
 
-  if (totalMonthlySavings < 100) {
-    return `Based on our analysis of your ${toolCount} AI platform${toolCount > 1 ? "s" : ""}, your organization currently spends $${totalCurrentSpend.toLocaleString()}/month on AI infrastructure. Your spending is well-optimized — we identified only $${totalMonthlySavings.toFixed(0)}/month in potential minor adjustments. This puts you in the top quartile of efficient AI spenders. We recommend monitoring your stack quarterly as pricing and feature parity across providers evolves rapidly.`;
+  if (totalMonthlySavings < 8400) {
+    return `Based on our analysis of your ${toolCount} AI platform${toolCount > 1 ? "s" : ""}, your organization currently spends ₹${totalCurrentSpend.toLocaleString("en-IN")}/month on AI infrastructure. Your spending is well-optimized — we identified only ₹${totalMonthlySavings.toFixed(0)}/month in potential minor adjustments. This puts you in the top quartile of efficient AI spenders. We recommend monitoring your stack quarterly as pricing and feature parity across providers evolves rapidly.`;
   }
 
   const topRecommendation = topSaver
-    ? `The most impactful change: ${topSaver.recommendation.action} for ${topSaver.tool.provider} (saving $${topSaver.recommendation.savings.toFixed(0)}/month). ${topSaver.recommendation.reasoning}`
+    ? `The most impactful change: ${topSaver.recommendation.action} for ${topSaver.tool.provider} (saving ₹${topSaver.recommendation.savings.toFixed(0)}/month). ${topSaver.recommendation.reasoning}`
     : "";
 
-  return `Based on our analysis of your ${toolCount} AI platform${toolCount > 1 ? "s" : ""}, your organization currently spends $${totalCurrentSpend.toLocaleString()}/month on AI infrastructure. Our audit engine identified $${totalMonthlySavings.toFixed(0)}/month in potential savings ($${totalAnnualSavings.toLocaleString()} annually). ${topRecommendation}`;
+  return `Based on our analysis of your ${toolCount} AI platform${toolCount > 1 ? "s" : ""}, your organization currently spends ₹${totalCurrentSpend.toLocaleString("en-IN")}/month on AI infrastructure. Our audit engine identified ₹${totalMonthlySavings.toFixed(0)}/month in potential savings (₹${totalAnnualSavings.toLocaleString("en-IN")} annually). ${topRecommendation}`;
 }
 
 export async function POST(request: NextRequest) {
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
     const toolDetails = body.toolResults
       .map(
         (tr) =>
-          `  - ${tr.tool.provider}: $${tr.tool.monthlySpend}/mo, ${tr.tool.seats} seats, use case: ${tr.tool.useCase}\n    → Recommendation: ${tr.recommendation.action} (saves $${tr.recommendation.savings.toFixed(2)}/mo)\n    → Reasoning: ${tr.recommendation.reasoning}`
+          `  - ${tr.tool.provider}: ₹${tr.tool.monthlySpend}/mo, ${tr.tool.seats} seats, use case: ${tr.tool.useCase}\n    → Recommendation: ${tr.recommendation.action} (saves ₹${tr.recommendation.savings.toFixed(2)}/mo)\n    → Reasoning: ${tr.recommendation.reasoning}`
       )
       .join("\n");
 
@@ -87,14 +87,14 @@ Given the following audit data for a company, write a concise, personalized summ
 2. Highlights the most impactful finding (biggest savings opportunity or redundancy)
 3. Provides a specific, actionable recommendation
 4. Mentions the total potential monthly and annual savings
-5. If savings are minimal (<$100/mo), congratulate them on efficient spending and suggest monitoring for future optimization opportunities
+5. If savings are minimal (<₹8,400/mo), congratulate them on efficient spending and suggest monitoring for future optimization opportunities
 
-Be direct, professional, and data-driven. Use specific dollar amounts. Do not use marketing fluff or superlatives. Write as if a finance person will read this and needs to trust the numbers.
+Be direct, professional, and data-driven. Use specific INR (₹) amounts. Do not use marketing fluff or superlatives. Write as if a finance person will read this and needs to trust the numbers.
 
 Audit Data:
-- Total Current Monthly Spend: $${body.totalCurrentSpend}
-- Total Potential Monthly Savings: $${body.totalMonthlySavings}
-- Total Potential Annual Savings: $${body.totalAnnualSavings}
+- Total Current Monthly Spend: ₹${body.totalCurrentSpend}
+- Total Potential Monthly Savings: ₹${body.totalMonthlySavings}
+- Total Potential Annual Savings: ₹${body.totalAnnualSavings}
 - Number of Tools Audited: ${body.toolResults.length}
 - Tool Details:
 ${toolDetails}

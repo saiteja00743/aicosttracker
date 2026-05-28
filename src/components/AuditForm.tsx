@@ -121,7 +121,7 @@ function ToolCard({
           <div className="space-y-1.5">
             <label className="text-[13px] font-medium text-on-surface">Monthly Spend</label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[14px]">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[14px]">₹</span>
               <input
                 type="text"
                 value={tool.monthlySpend}

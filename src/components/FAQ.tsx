@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: "Is there a cost for the audit?",
-    a: "The intelligence audit is completely free. We surface your optimization opportunity at no cost. If you qualify for our Concierge Negotiation Service (annual savings > $10K), we work on a performance-based fee — you only pay when we save you money.",
+    a: "The intelligence audit is completely free. We surface your optimization opportunity at no cost. If you qualify for our Concierge Negotiation Service (annual savings > ₹8,40,000), we work on a performance-based fee — you only pay when we save you money.",
   },
   {
     q: "How accurate are the savings projections?",

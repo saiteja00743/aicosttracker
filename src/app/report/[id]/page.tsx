@@ -59,19 +59,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const annual = Math.round(audit.total_annual_savings ?? 0);
 
   return {
-    title: `$${annual.toLocaleString()}/yr savings identified | AI Cost Tracker Audit`,
-    description: `This AI spend audit identified $${monthly.toLocaleString()}/month ($${annual.toLocaleString()}/year) in potential savings across ${(audit.tools as unknown[])?.length ?? 0} AI tools.`,
+    title: `₹${annual.toLocaleString('en-IN')}/yr savings identified | AI Cost Tracker Audit`,
+    description: `This AI spend audit identified ₹${monthly.toLocaleString('en-IN')}/month (₹${annual.toLocaleString('en-IN')}/year) in potential savings across ${(audit.tools as unknown[])?.length ?? 0} AI tools.`,
     openGraph: {
-      title: `$${annual.toLocaleString()}/yr in AI savings identified`,
-      description: `AI Cost Tracker found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
+      title: `₹${annual.toLocaleString('en-IN')}/yr in AI savings identified`,
+      description: `AI Cost Tracker found ₹${monthly.toLocaleString('en-IN')}/month in optimization opportunities across your AI stack.`,
       url: `${baseUrl}/report/${id}`,
       siteName: "AI Cost Tracker",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `$${annual.toLocaleString()}/yr in AI savings identified`,
-      description: `AI Cost Tracker found $${monthly.toLocaleString()}/month in optimization opportunities across your AI stack.`,
+      title: `₹${annual.toLocaleString('en-IN')}/yr in AI savings identified`,
+      description: `AI Cost Tracker found ₹${monthly.toLocaleString('en-IN')}/month in optimization opportunities across your AI stack.`,
     },
   };
 }
